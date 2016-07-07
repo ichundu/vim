@@ -1,0 +1,14 @@
+---
+
+- name: Ensure vim is installed
+  yum: name=vim state=present
+
+- name: Enable 256 shell colors
+  lineinfile: dest=/etc/profile line="export TERM='xterm-256color'"
+
+- include: ansible-vim.yml
+
+- include: colors.yml
+
+- name: Copy vimrc file
+  template: src=vimrc.j2 dest=/etc/vimrc

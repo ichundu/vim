@@ -1,0 +1,7 @@
+---
+
+- name: Copy colorscheme files
+  copy: src={{ item }} dest=/usr/share/vim/vimfiles/{{ item }}
+  with_items:
+    - colors/molokai.vim
+    - colors/onedark.vim

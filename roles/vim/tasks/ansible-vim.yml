@@ -1,0 +1,15 @@
+#Ansible vim syntax
+
+---
+
+- name: Copy ansible files to remote hosts
+  copy: src={{ item.src }} dest=/usr/share/vim/vimfiles/{{ item.dest }}
+  with_items:
+    - src: ftdetect/
+      dest: ftdetect/
+    - src: ftplugin/
+      dest: ftplugin/
+    - src: indent/
+      dest: indent/
+    - src: syntax/
+      dest: syntax/
