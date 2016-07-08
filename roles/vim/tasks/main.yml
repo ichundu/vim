@@ -2,6 +2,11 @@
 
 - name: Ensure vim is installed
   yum: name=vim state=present
+  when: ansible_distribution_major_version > "5"
+
+- name: Ensure vim is installed on older systems
+  yum: name=vim-enhanced state=present
+  when: ansible_distribution_major_version == "5"
 
 - name: Enable 256 shell colors
   lineinfile: dest=/etc/profile line="export TERM='xterm-256color'"
